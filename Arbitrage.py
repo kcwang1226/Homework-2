@@ -111,7 +111,7 @@ def calculate_each_step(path):
         number = number1
         prev_token = cur_token
 
-    print(f"path: {print_path}, total balance:{maximum}")
+    print(f"path: {print_path}, tokenB balance:{maximum}")
 
     return number
 
