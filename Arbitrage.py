@@ -87,4 +87,33 @@ for path in circles:
         maximum = temp
         max_path = path
 
-print(maximum, max_path)
+# print(maximum, max_path)
+def calculate_each_step(path):
+    prev_token = path[0]
+    print_path = path[0]
+    number = 5
+    for i in range(len(path)-1):
+        cur_token = path[i+1]
+        print_path = print_path + f" -> {cur_token}"
+        # print(f" -> {cur_token}")
+        # print(path[i+1])
+        # num = liquidity[prev_token, cur_token]
+        # print(prev_token, cur_token)
+        if prev_token[5] < cur_token[5]:
+            num = liquidity[(prev_token, cur_token)]
+            Rx, Ry = num[0], num[1]
+        else:
+            num = liquidity[(cur_token, prev_token)]
+            Rx, Ry = num[1], num[0]
+        
+        number1 = (Ry * 0.997 * number) / (Rx + 0.997 * number)
+        print(f"{prev_token} -> {cur_token}: (amount in: {number}, amount out: {number1})")
+        number = number1
+        prev_token = cur_token
+
+    print(f"profitable path:{print_path}")
+
+    return number
+
+
+calculate_each_step(max_path)
