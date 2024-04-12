@@ -55,7 +55,7 @@ Investigate the minting function in the UniswapV2Pair contract. When depositing 
 For subsequent liquidity deposits (after the initial setup), Uniswap V2 uses a specific formula to determine how much liquidity tokens a depositor should receive. This formula ensures that the share of liquidity tokens received is proportional to the amount of liquidity the depositor adds relative to the current pool size.
 
 The formula to calculate liquidity 
-L added by a new deposit of tokens dx and dy is: $L=min(\frac{dx*total_liquidity}{x},\frac{dy*total_liquidity}{y})$
+L added by a new deposit of tokens dx and dy is: L=min(dx*total_liquidity/x,dy*total_liquidity/y)
 
 This design maintains the ratio of reserves in the pool, ensuring that the value is distributed fairly according to each provider's contribution and prevents dilution of existing liquidity providers' shares.
 
