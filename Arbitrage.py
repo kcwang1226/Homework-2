@@ -94,7 +94,7 @@ def calculate_each_step(path):
     number = 5
     for i in range(len(path)-1):
         cur_token = path[i+1]
-        print_path = print_path + f" -> {cur_token}"
+        print_path = print_path + f"->{cur_token}"
         # print(f" -> {cur_token}")
         # print(path[i+1])
         # num = liquidity[prev_token, cur_token]
@@ -107,11 +107,11 @@ def calculate_each_step(path):
             Rx, Ry = num[1], num[0]
         
         number1 = (Ry * 0.997 * number) / (Rx + 0.997 * number)
-        print(f"{prev_token} -> {cur_token}: (amount in: {number}, amount out: {number1})")
+        # print(f"{prev_token} -> {cur_token}: (amount in: {number}, amount out: {number1})")
         number = number1
         prev_token = cur_token
 
-    print(f"profitable path:{print_path}")
+    print(f"path: {print_path}, total balance:{maximum}")
 
     return number
 
